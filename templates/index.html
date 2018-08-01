@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='species.css') }}" />
+    <script>var api_port = {{ api_port }};</script>
+	<script type="text/javascript" src="{{ url_for('static', filename='species.js') }}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Endangered Species</title>	
+</head>
+
+<body>
+    <div class="banner">
+        <p>Endangered Species API</p>
+    </div>
+    <div class="spacing"></div>
+    <div class="navbar">
+        <a href='javascript:onAllSpeciesButtonClicked()'>All Species</a>
+        <div class="dropdown">
+            <button class="dropbtn">Species By Federal Listing Status 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href='javascript:onFLSButtonClicked("endangered")'>Endangered</a>
+                <a href='javascript:onFLSButtonClicked("threatened")'>Threatened</a>
+                <a href='javascript:onFLSButtonClicked("experimental population, non-essential")'>Experimental Population, Non-Essential</a>
+                <a href='javascript:onFLSButtonClicked("similarity of appearance to a threatened taxon")'>Similarity of Appearance to a Threatened Taxon</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Species Group
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href='javascript:onGroupButtonClicked("amphibians")'>Amphibians</a>
+                <a href='javascript:onGroupButtonClicked("arachnids")'>Arachnids</a>
+                <a href='javascript:onGroupButtonClicked("birds")'>Birds</a>
+                <a href='javascript:onGroupButtonClicked("clams")'>Clams</a>
+                <a href='javascript:onGroupButtonClicked("corals")'>Corals</a>
+                <a href='javascript:onGroupButtonClicked("crustaceans")'>Crustaceans</a>
+                <a href='javascript:onGroupButtonClicked("fishes")'>Fishes</a>
+                <a href='javascript:onGroupButtonClicked("insects")'>Insects</a>
+                <a href='javascript:onGroupButtonClicked("mammals")'>Mammals</a>
+                <a href='javascript:onGroupButtonClicked("reptiles")'>Reptiles</a>
+                <a href='javascript:onGroupButtonClicked("snails")'>Snails</a>
+            </div>
+        </div>
+        <div class="search-container">
+            <input id="search" type="text" placeholder="Search..." name="search">
+            <button href='javascript:onSearchButtonClicked()'><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+    <div>
+        <h3 id="species_names"></h3>
+        <h3 id="species_group"></h3>
+        <table id="results_table">
+        </table>
+    </div>
+</body>
+
+</html>
